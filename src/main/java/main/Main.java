@@ -44,8 +44,8 @@ public class Main {
             case "d":
 
                 PeopleList peopleList=new PeopleList();
+                peopleList.showPeople();
 
-                System.out.println(peopleList);
 
                 break;
 

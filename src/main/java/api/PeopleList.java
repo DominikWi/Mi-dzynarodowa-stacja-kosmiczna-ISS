@@ -12,23 +12,20 @@ import static api.JsonReader.readJsonFromUrl;
 public class PeopleList{
     JSONObject jsonAstronauci;
 
-    {
-        try {
-            jsonAstronauci = readJsonFromUrl("http://api.open-notify.org/astros.json");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        JSONArray arr = jsonAstronauci.getJSONArray("people");
-        for (int i = 0; i < arr.length(); i++)
+   public void showPeople() {
         {
-            String nameAstronaut = arr.getJSONObject(i).getString("name");
+            try {
+                jsonAstronauci = readJsonFromUrl("http://api.open-notify.org/astros.json");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-            System.out.println(nameAstronaut);
+            JSONArray arr = jsonAstronauci.getJSONArray("people");
+            for (int i = 0; i < arr.length(); i++) {
+                String nameAstronaut = arr.getJSONObject(i).getString("name");
+
+                System.out.println(nameAstronaut);
+            }
         }
-
-
-
     }
-
 }
