@@ -1,24 +1,17 @@
 package main;
 
+import api.Location;
 import api.PeopleList;
-import database.entity.IssLocation;
 import database.utils.HibernateUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static api.JsonReader.readJsonFromUrl;
-
 public class Main {
-
-    private static JSONArray obj;
-
-    public static void main(String[] args)  throws IOException, JSONException {
-        JSONObject jsonAstronauci = readJsonFromUrl("http://api.open-notify.org/astros.json");
-        JSONObject jsonLokalizacja = readJsonFromUrl("http://api.open-notify.org/iss-now.json");
+    
+    public static void main(String[] args)  throws JSONException {
 
             HibernateUtils
                 .getInstance()
@@ -36,16 +29,28 @@ public class Main {
                 System.out.println("Predkosc ISS wynosi ~ 28,000 km/h ");
                 break;
             case "b":
-              //lokalizacja do ogarniecia
+              //lokalizacja iss
+                Location location=new Location();
+                location.whereIsNow();
+
+               /*
+                moja lokalizacja zapisana w systemie
+                location.myLocation();*/
+
+
+                /*wprowadz dowolna lokalizacje podajac szerok i dlug geogr
+                location.randomLocation();*/
+
 
                 break;
             case "c":
-                System.out.println("W kosmosie przebywa " +jsonAstronauci.get("number")+ " osob.") ;
+                PeopleList peopleList2=new PeopleList();
+                peopleList2.howManyPeople();
+                break;
             case "d":
 
                 PeopleList peopleList=new PeopleList();
                 peopleList.showPeople();
-
 
                 break;
 
