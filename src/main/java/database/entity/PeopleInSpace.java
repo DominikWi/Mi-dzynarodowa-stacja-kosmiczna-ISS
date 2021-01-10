@@ -14,7 +14,6 @@ public class PeopleInSpace {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
         private String name;
-        private String surname;
         private LocalDateTime date;
 
         public PeopleInSpace() {}
@@ -33,14 +32,6 @@ public class PeopleInSpace {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public LocalDateTime getDate() {

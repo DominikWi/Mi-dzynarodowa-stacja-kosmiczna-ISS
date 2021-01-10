@@ -11,9 +11,10 @@ public class IssLocation  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Double longitude;
-    private Double latitude;
+
     private Long id;
+    private double longitude;
+    private double latitude;
     private LocalDateTime date;
 
 
