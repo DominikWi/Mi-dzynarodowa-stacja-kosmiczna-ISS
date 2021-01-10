@@ -16,7 +16,7 @@ public class Main {
             HibernateUtils
                 .getInstance()
                 .getSessionFactory()
-                .close();
+                /*.close()*/;
         System.out.println("a - Podaj predkosc ISS");
         System.out.println("b - Wyswietl liste nadchodzacych przebiegow ISS dla okreslonej lokalizacji");
         System.out.println("c - Wyswietl liczbe osob przebywajacych w kosmosie w ramach ISS");

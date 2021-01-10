@@ -1,9 +1,13 @@
 package api;
 
+import database.dao.IssLocationDao;
+import database.daoimpl.IssLocationDaoImpl;
+import database.entity.IssLocation;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import static api.JsonReader.readJsonFromUrl;
@@ -21,10 +25,15 @@ public class Location {
 
 
     public void whereIsNow() {
+        IssLocation issLocation=new IssLocation();
+        IssLocationDao issLocationDao=new IssLocationDaoImpl();
 
-            String szerokoscGeogr = jsonLocation.getJSONObject("iss_position").getString("latitude");
-            String dlugoscGeogr = jsonLocation.getJSONObject("iss_position").getString("longitude");
-
+            double szerokoscGeogr = Double.parseDouble(jsonLocation.getJSONObject("iss_position").getString("latitude"));
+            double dlugoscGeogr = Double.parseDouble(jsonLocation.getJSONObject("iss_position").getString("longitude"));
+            issLocation.setLatitude(szerokoscGeogr);
+            issLocation.setLongitude(dlugoscGeogr);
+            issLocation.setDate(LocalDateTime.now());
+            issLocationDao.save(issLocation);
             System.out.println(szerokoscGeogr + " szerokosc");
             System.out.println(dlugoscGeogr + " dlugosc");
         }

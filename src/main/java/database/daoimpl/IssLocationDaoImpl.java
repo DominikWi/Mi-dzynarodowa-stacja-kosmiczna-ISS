@@ -1,5 +1,6 @@
 package database.daoimpl;
 
+import database.dao.IssLocationDao;
 import database.entity.IssLocation;
 import database.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -8,7 +9,7 @@ import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IssLocationDaoImpl {
+public class IssLocationDaoImpl implements IssLocationDao {
 
         public void save(IssLocation issLocation) {
             Session session = HibernateUtils
