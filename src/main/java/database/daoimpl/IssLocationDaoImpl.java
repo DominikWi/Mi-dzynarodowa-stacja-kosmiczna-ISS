@@ -1,5 +1,6 @@
 package database.daoimpl;
 
+import database.dao.IssLocationDao;
 import database.entity.IssLocation;
 import database.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -8,8 +9,9 @@ import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IssLocationDaoImpl {
+public class IssLocationDaoImpl implements IssLocationDao {
 
+        @Override
         public void save(IssLocation issLocation) {
             Session session = HibernateUtils
                     .getInstance()
@@ -22,6 +24,7 @@ public class IssLocationDaoImpl {
             session.close();
         }
 
+        @Override
         public IssLocation findById(Long id) {
             Session session = HibernateUtils
                     .getInstance()
@@ -46,6 +49,7 @@ public class IssLocationDaoImpl {
             return issLocation;
         }
 
+        @Override
         public List<IssLocation> findAll() {
             Session session = HibernateUtils
                     .getInstance()
@@ -72,6 +76,7 @@ public class IssLocationDaoImpl {
             return issLocations;
         }
 
+        @Override
         public void deleteById(Long id) {
             Session session = HibernateUtils
                     .getInstance()
