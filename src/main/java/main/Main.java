@@ -13,9 +13,9 @@ public class Main {
     
     public static void main(String[] args)  throws JSONException {
 
-            HibernateUtils
+          /*  HibernateUtils
                 .getInstance()
-                .getSessionFactory()
+                .getSessionFactory()*/
                 /*.close()*/;
         System.out.println("a - Podaj predkosc ISS");
         System.out.println("b - Wyswietl liste nadchodzacych przebiegow ISS dla okreslonej lokalizacji");
@@ -34,8 +34,8 @@ public class Main {
                 location.whereIsNow();
 
                /*
-                moja lokalizacja zapisana w systemie
-                location.myLocation();*/
+                moja lokalizacja zapisana w systemie*/
+                location.myLocation();
 
 
                 /*wprowadz dowolna lokalizacje podajac szerok i dlug geogr

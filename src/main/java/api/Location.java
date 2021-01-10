@@ -1,8 +1,11 @@
 package api;
 
 import database.dao.IssLocationDao;
+import database.dao.UserLocationDao;
 import database.daoimpl.IssLocationDaoImpl;
+import database.daoimpl.UserLocationDaoImpl;
 import database.entity.IssLocation;
+import database.entity.UserLocation;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -39,11 +42,19 @@ public class Location {
         }
         public void myLocation(){
 
-           double myLongitude= 54.074253;
-           double mylatitude=9.984466 ;
-            System.out.println("54.074253 szerokosc");
-            System.out.println("9.984466 dlugosc");
+            UserLocation userLocation = new UserLocation();
+            UserLocationDao userLocationDao= new UserLocationDaoImpl();
 
+
+           double myLongitude= 54.074253;
+           double myLatitude=9.984466 ;
+
+           userLocation.setLatitude(myLatitude);
+           userLocation.setLongitude(myLongitude);
+           userLocationDao.save(userLocation);
+           /* System.out.println("54.074253 szerokosc");
+            System.out.println("9.984466 dlugosc");
+*/
         }
         public void randomLocation(){
             Scanner scan = new Scanner(System.in);
