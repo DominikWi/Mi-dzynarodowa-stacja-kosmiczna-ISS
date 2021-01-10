@@ -24,6 +24,7 @@ public class IssLocationDaoImpl implements IssLocationDao {
             session.close();
         }
 
+        @Override
         public IssLocation findById(Long id) {
             Session session = HibernateUtils
                     .getInstance()
@@ -48,6 +49,7 @@ public class IssLocationDaoImpl implements IssLocationDao {
             return issLocation;
         }
 
+        @Override
         public List<IssLocation> findAll() {
             Session session = HibernateUtils
                     .getInstance()
@@ -74,6 +76,7 @@ public class IssLocationDaoImpl implements IssLocationDao {
             return issLocations;
         }
 
+        @Override
         public void deleteById(Long id) {
             Session session = HibernateUtils
                     .getInstance()

@@ -32,11 +32,12 @@ public class IssLocationDaoImplTest {
     }
 
     @Test
-    void save() {
+
+        void save() {
         IssLocation issLocation = new IssLocation();
         issLocation.setDate(LocalDateTime.now());
-        issLocation.setLatitude(10.10);
         issLocation.setLongitude(6.15);
+        issLocation.setLatitude(10.10);
 
         issLocationDao.save(issLocation);
 
