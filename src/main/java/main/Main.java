@@ -1,5 +1,6 @@
 package main;
 
+import api.IssPassTimes;
 import api.Location;
 import api.PeopleList;
 import database.utils.HibernateUtils;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    
+
     public static void main(String[] args)  throws JSONException {
 
           /*  HibernateUtils
@@ -22,6 +23,7 @@ public class Main {
         System.out.println("c - Wyswietl liczbe osob przebywajacych w kosmosie w ramach ISS");
         System.out.println("d - Wyswietl liste osob przebywajacych w kosmosie w ramach ISS");
         System.out.println("e - Wyjscie");
+
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
         switch (choice) {
@@ -30,13 +32,16 @@ public class Main {
                 break;
             case "b":
               //lokalizacja iss
-                Location location=new Location();
-                location.whereIsNow();
+                /*Location location=new Location();
+                location.whereIsNow();*/
 
                /*
                 moja lokalizacja zapisana w systemie*/
-                location.myLocation();
+                /*location.myLocation();*/
 
+                //wyswietlanie kiedy znowu sie pojawi stacja
+                IssPassTimes issPassTimes=new IssPassTimes();
+                issPassTimes.whenItIs();
 
                 /*wprowadz dowolna lokalizacje podajac szerok i dlug geogr
                 location.randomLocation();*/
@@ -55,7 +60,10 @@ public class Main {
                 break;
 
             case "e":
+
                 System.out.println("Ciao");
+
+            break;
             default:
                 System.out.println("Zły wybor");
         }
