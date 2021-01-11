@@ -36,8 +36,8 @@ public class PeopleInSpaceDaoImplTest {
     void save() {
         PeopleInSpace peopleInSpace = new PeopleInSpace();
         peopleInSpace.setDate(LocalDateTime.now());
-        peopleInSpace.setName("Jan");
-        peopleInSpace.setSurname("Kowalski");
+        peopleInSpace.setName("Jan Kowalski");
+
 
         peopleInSpaceDao.save(peopleInSpace);
 
@@ -46,7 +46,6 @@ public class PeopleInSpaceDaoImplTest {
         assertNotNull(saved);
         assertEquals(peopleInSpace.getId(), saved.getId());
         assertEquals(peopleInSpace.getName(), saved.getName());
-        assertEquals(peopleInSpace.getSurname(), saved.getSurname());
 
     }
 
@@ -54,8 +53,7 @@ public class PeopleInSpaceDaoImplTest {
     void findById() {
         PeopleInSpace peopleInSpace = new PeopleInSpace();
         peopleInSpace.setDate(LocalDateTime.now());
-        peopleInSpace.setName("Jan");
-        peopleInSpace.setSurname("Kowalski");
+        peopleInSpace.setName("Jan Kowalski");
 
         peopleInSpaceDao.findById(peopleInSpace.getId());
         PeopleInSpace findedByID = peopleInSpaceDao.findById(peopleInSpace.getId());
@@ -68,13 +66,11 @@ public class PeopleInSpaceDaoImplTest {
     void findAll() {
         PeopleInSpace peopleInSpace1 = new PeopleInSpace();
         peopleInSpace1.setDate(LocalDateTime.now());
-        peopleInSpace1.setName("Jan");
-        peopleInSpace1.setSurname("Kowalski");
+        peopleInSpace1.setName("Jan Kowalski");
 
         PeopleInSpace peopleInSpace2 = new PeopleInSpace();
         peopleInSpace2.setDate(LocalDateTime.now());
-        peopleInSpace2.setName("Andrzej");
-        peopleInSpace2.setSurname("Nowak");
+        peopleInSpace2.setName("Andrzej Nowak");
 
         peopleInSpaceDao.save(peopleInSpace1);
         peopleInSpaceDao.save(peopleInSpace2);
@@ -90,8 +86,7 @@ public class PeopleInSpaceDaoImplTest {
     void deleteById() {
         PeopleInSpace peopleInSpace = new PeopleInSpace();
         peopleInSpace.setDate(LocalDateTime.now());
-        peopleInSpace.setName("Jan");
-        peopleInSpace.setSurname("Kowalski");
+        peopleInSpace.setName("Jan Kowalski");
 
         peopleInSpaceDao.save(peopleInSpace);
 
