@@ -10,7 +10,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static api.JsonReader.readJsonFromUrl;
 
@@ -33,20 +35,15 @@ public class PeopleList{
    public void showPeople() {
        PeopleInSpace peopleInSpace=new PeopleInSpace();
        PeopleInSpaceDao peopleInSpaceDao = new PeopleInSpaceDaoImpl();
-
+       List<String> listPeople =new ArrayList<>();
 
        JSONArray arr = jsonAstronauci.getJSONArray("people");
             for (int i = 0; i < arr.length(); i++) {
                 String nameAstronaut = arr.getJSONObject(i).getString("name");
-               /* peopleInSpace.setName(nameAstronaut);
-                peopleInSpace.setDate(LocalDateTime.now());
-                peopleInSpaceDao.save(peopleInSpace);
+                listPeople.add(nameAstronaut);
 
-                TO ZAPISUJE TYLKO OSTATNIEGO KOSMONAUTE
-                */
-
-                System.out.println(nameAstronaut);
             }
+       System.out.println(listPeople);
         }
     }
 
